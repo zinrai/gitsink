@@ -41,8 +41,14 @@ func parseFlags() *config {
 	flag.StringVar(&cfg.authorName, "author-name", "gitsink", "Author name for commits")
 	flag.StringVar(&cfg.authorEmail, "author-email", "gitsink@localhost", "Author email for commits")
 	flag.BoolVar(&cfg.dryRun, "dry-run", false, "Show plan without executing")
+	showVersion := flag.Bool("version", false, "Print version information and exit")
 
 	flag.Parse()
+
+	if *showVersion {
+		printVersion()
+		os.Exit(0)
+	}
 
 	if cfg.srcDir == "" || cfg.repoDir == "" {
 		fmt.Fprintln(os.Stderr, "error: -src and -repo are required")
