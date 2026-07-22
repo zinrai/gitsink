@@ -14,12 +14,6 @@ gitsink solves this problem by syncing files to a Git repository and running pre
 
 `git` command
 
-## Installation
-
-```bash
-$ go install github.com/zinrai/gitsink:latest
-```
-
 ## Usage
 
 ### Basic usage (remote sync)
